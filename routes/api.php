@@ -37,17 +37,7 @@ Route::prefix('v1')
      * Auth
      */
     Route::post('login', LoginController::class);
-
-    /**
-     * Protected routes
-     */
-    Route::middleware('auth:sanctum')
-        ->group(function() {
-        /**
-         * auth
-         */
-        Route::post('logout', LogoutController::class);
-    });
+    Route::post('logout', LogoutController::class);
 
     /**
      * Vehicle types
@@ -84,4 +74,5 @@ Route::prefix('v1')
         Route::put('/{vehicle_stay}', UpdateVehicleStayController::class);
         Route::delete('/{vehicle_stay}', DeleteVehicleStayController::class);
     });
+
 });

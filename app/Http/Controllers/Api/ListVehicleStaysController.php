@@ -23,6 +23,7 @@ class ListVehicleStaysController extends Controller
         try {
             $vehicleStays = VehicleStay::select();
             $q            = $request->input('q', null);
+            $checkOut     = $request->input('check_out', null);
             $orderBy      = $request->input('order_by', 'id');
             $order        = $request->input('order', 'desc');
             $perPage      = (int) $request->input('per_page', 10);
@@ -32,6 +33,15 @@ class ListVehicleStaysController extends Controller
                 $query = str_replace(' ', '%', $q);
 
                 $vehicleStays->where('name', 'like', "%{$query}%");
+            }
+
+            // Check out filter
+            if ($checkOut) {
+                if ($checkOut === 'isNull') {
+                    $vehicleStays->whereNull('check_out');
+                } else {
+                    $vehicleStays->where('check_out', $checkOut);
+                }
             }
 
             $vehicleStays = $vehicleStays->orderBy($orderBy, $order)

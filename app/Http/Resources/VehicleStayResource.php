@@ -20,6 +20,8 @@ class VehicleStayResource extends JsonResource
             'vehicle_id' => $this->vehicle_id,
             'check_in'   => $this->check_in,
             'check_out'  => $this->check_out,
+            'created_at'  => $this->created_at ? $this->created_at->format('Y-m-d\TH:i') : null,
+            'updated_at'  => $this->updated_at ? $this->updated_at->format('Y-m-d\TH:i') : null,
         ];
     }
 }

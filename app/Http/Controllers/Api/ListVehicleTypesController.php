@@ -31,7 +31,7 @@ class ListVehicleTypesController extends Controller
             if ($q) {
                 $query = str_replace(' ', '%', $q);
 
-                $vehicleTypes->where('name', 'like', "%{$query}%");
+                $vehicleTypes->where('title', 'like', "%{$query}%");
             }
 
             $vehicleTypes = $vehicleTypes->orderBy($orderBy, $order)

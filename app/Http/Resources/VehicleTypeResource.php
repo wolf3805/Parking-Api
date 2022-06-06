@@ -20,6 +20,8 @@ class VehicleTypeResource extends JsonResource
             'title'       => $this->title,
             'description' => $this->description,
             'rate'        => $this->rate,
+            'created_at'  => $this->created_at ? $this->created_at->format('Y-m-d\TH:i') : null,
+            'updated_at'  => $this->updated_at ? $this->updated_at->format('Y-m-d\TH:i') : null,
         ];
     }
 }

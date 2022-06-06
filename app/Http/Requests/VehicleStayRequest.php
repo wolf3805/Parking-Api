@@ -24,10 +24,9 @@ class VehicleStayRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id'    => 'required|integer',
-            'vehicle_id' => 'required|integer',
-            'check_in'   => 'required|date',
-            'check_out'  => 'required|date',
+            'vehicle_id' => 'sometimes|integer',
+            'check_in'   => 'sometimes|date',
+            'check_out'  => 'sometimes|date',
         ];
     }
 }

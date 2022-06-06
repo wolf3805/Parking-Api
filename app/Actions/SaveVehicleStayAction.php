@@ -24,6 +24,7 @@ class SaveVehicleStayAction
             if ($vehicleStay) {
                 $vehicleStay = tap($vehicleStay)->update($data);
             } else {
+                $data['check_in'] = now();
                 $vehicleStay = VehicleStay::create($data);
             }
 
